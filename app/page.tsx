@@ -1,4 +1,4 @@
-import Hello from "@/components/hello";
+import ClientLayout from "@/app/components/ClientLayout";
 
 
 const Home = () => {
@@ -6,7 +6,7 @@ const Home = () => {
     return (
         <div>
            <h1 className="text-5xl underline bold italic">Welcome to nextJS</h1>
-            <Hello></Hello>
+
         </div>
     );
 }
