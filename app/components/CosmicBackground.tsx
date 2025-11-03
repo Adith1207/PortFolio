@@ -1,23 +1,44 @@
 'use client';
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Rocket, Flame } from "lucide-react";
 
+interface Star {
+    top: string;
+    left: string;
+    size: number;
+    opacity: number;
+    duration: number;
+}
+
 export default function CosmicBackground() {
-    const stars = Array.from({ length: 80 }); // more stars for a galaxy feel
+    const [stars, setStars] = useState<Star[]>([]);
+
+    useEffect(() => {
+        // Generate stars only on the client to prevent hydration mismatch
+        const starArray = Array.from({ length: 80 }).map(() => ({
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+            size: Math.random() * 2 + 0.8,
+            opacity: Math.random() * 0.9 + 0.1,
+            duration: Math.random() * 5 + 3,
+        }));
+        setStars(starArray);
+    }, []);
 
     return (
         <div className="fixed inset-0 -z-10 overflow-hidden bg-gradient-to-b from-[#030014] via-[#06001c] to-[#000010]">
             {/* 🌠 Twinkling stars */}
-            {stars.map((_, i) => (
+            {stars.map((star, i) => (
                 <motion.div
                     key={i}
                     className="absolute bg-white rounded-full"
                     style={{
-                        width: Math.random() * 2 + 0.8,
-                        height: Math.random() * 2 + 0.8,
-                        top: `${Math.random() * 100}%`,
-                        left: `${Math.random() * 100}%`,
-                        opacity: Math.random() * 0.9 + 0.1,
+                        width: star.size,
+                        height: star.size,
+                        top: star.top,
+                        left: star.left,
+                        opacity: star.opacity,
                         filter: "drop-shadow(0 0 3px rgba(255,255,255,0.7))",
                     }}
                     animate={{
@@ -25,7 +46,7 @@ export default function CosmicBackground() {
                         scale: [1, 1.3, 1],
                     }}
                     transition={{
-                        duration: Math.random() * 5 + 3,
+                        duration: star.duration,
                         repeat: Infinity,
                         ease: "easeInOut",
                     }}
@@ -76,7 +97,7 @@ export default function CosmicBackground() {
                 </motion.div>
             </motion.div>
 
-            {/* 🚀 Rocket 2 (smaller & farther) */}
+            {/* 🚀 Rocket 2 */}
             <motion.div
                 initial={{ x: "120vw", y: "80vh", rotate: 15, opacity: 0.6, scale: 0.9 }}
                 animate={{ x: "-20vw", y: "50vh", rotate: 5, opacity: 1 }}
