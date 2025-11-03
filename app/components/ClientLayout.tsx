@@ -1,115 +1,132 @@
 'use client';
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Github, Linkedin, Mail, Home, User, Code2, Sparkles } from "lucide-react";
-import { ReactNode } from "react";
+import { Github, Linkedin, Mail, Home, User, Code2, Laptop2Icon, Menu, X, Sparkles } from "lucide-react";
+import BrandTitle from "./brandTitle";
+import CosmicBackground from "./CosmicBackground";
 
-export default function ClientLayout({ children }: { children: ReactNode }) {
+export default function ClientLayout({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
+    const [menuOpen, setMenuOpen] = useState(false);
 
     return (
-        <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-950 via-gray-900 to-black text-white relative overflow-hidden">
-            {/* Animated background blobs */}
-            <motion.div
-                className="absolute inset-0 -z-10"
-                animate={{
-                    background: [
-                        "radial-gradient(circle at 10% 20%, #ff0080 0%, transparent 60%)",
-                        "radial-gradient(circle at 80% 0%, #7928ca 0%, transparent 60%)",
-                        "radial-gradient(circle at 80% 80%, #00ffff 0%, transparent 60%)",
-                    ],
-                }}
-                transition={{
-                    duration: 12,
-                    repeat: Infinity,
-                    repeatType: "mirror",
-                }}
-            />
+        <div className="min-h-screen flex flex-col relative overflow-hidden text-white">
+            {/* 🌌 Cosmic Background */}
+            <CosmicBackground />
 
-            {/* Navbar */}
+            {/* 🌠 Navbar */}
             <motion.nav
                 initial={{ y: -80 }}
                 animate={{ y: 0 }}
                 transition={{ type: "spring", stiffness: 60 }}
-                className="sticky top-0 z-50 backdrop-blur-md bg-white/10 border-b border-white/10 shadow-lg"
+                className="sticky top-0 z-50 backdrop-blur-xl bg-white/10 border-b border-white/10 shadow-lg"
             >
-                <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+                <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3 sm:py-4">
                     {/* Logo */}
                     <motion.div
-                        whileHover={{ scale: 1.05, rotate: 5 }}
+                        whileHover={{ scale: 1.05 }}
                         transition={{ type: "spring", stiffness: 200 }}
-                        className="flex items-center gap-2 text-lg font-bold tracking-wide"
+                        className="flex items-center gap-2"
                     >
-                        <Sparkles className="text-pink-400" size={24} />
-                        <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-              AdithVerse
-            </span>
+                        <Sparkles className="text-pink-500" size={30} />
+                        <BrandTitle />
                     </motion.div>
 
-                    {/* Nav Links */}
-                    <div className="flex gap-6">
+                    {/* Mobile toggle */}
+                    <div className="sm:hidden">
+                        <button onClick={() => setMenuOpen(!menuOpen)}>
+                            {menuOpen ? <X size={26} /> : <Menu size={26} />}
+                        </button>
+                    </div>
+
+                    {/* Desktop nav links */}
+                    <div className="hidden sm:flex gap-8 text-lg font-semibold tracking-wide">
                         {[
                             { name: "Home", href: "/", icon: Home },
                             { name: "About", href: "/about", icon: User },
+                            { name: "Skills", href: "/skills", icon: Laptop2Icon },
                             { name: "Projects", href: "/projects", icon: Code2 },
                         ].map((link) => {
                             const active = pathname === link.href;
                             return (
                                 <motion.div
                                     key={link.name}
-                                    whileHover={{ scale: 1.15 }}
+                                    whileHover={{ scale: 1.12 }}
                                     whileTap={{ scale: 0.95 }}
                                     className="relative"
                                 >
                                     <Link
                                         href={link.href}
-                                        className={`flex items-center gap-2 font-medium ${
+                                        className={`flex items-center gap-1 ${
                                             active
-                                                ? "text-cyan-400 drop-shadow-[0_0_10px_rgba(0,255,255,0.5)]"
+                                                ? "text-cyan-400 drop-shadow-[0_0_12px_rgba(0,255,255,0.5)]"
                                                 : "text-white/80 hover:text-pink-400 transition-colors"
                                         }`}
                                     >
                                         <link.icon size={18} />
                                         {link.name}
                                     </Link>
-                                    {active && (
-                                        <motion.div
-                                            layoutId="underline"
-                                            className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-pink-400 to-cyan-400 rounded-full"
-                                        />
-                                    )}
                                 </motion.div>
                             );
                         })}
                     </div>
                 </div>
+
+                {/* Mobile menu */}
+                <AnimatePresence>
+                    {menuOpen && (
+                        <motion.div
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            className="sm:hidden flex flex-col gap-3 items-center bg-black/70 py-6 border-t border-white/10"
+                        >
+                            {[
+                                { name: "Home", href: "/", icon: Home },
+                                { name: "About", href: "/about", icon: User },
+                                { name: "Skills", href: "/skills", icon: Laptop2Icon },
+                                { name: "Projects", href: "/projects", icon: Code2 },
+                            ].map((link) => (
+                                <Link
+                                    key={link.name}
+                                    href={link.href}
+                                    onClick={() => setMenuOpen(false)}
+                                    className={`flex items-center gap-2 text-lg ${
+                                        pathname === link.href
+                                            ? "text-cyan-400"
+                                            : "text-white/80 hover:text-pink-400"
+                                    }`}
+                                >
+                                    <link.icon size={18} />
+                                    {link.name}
+                                </Link>
+                            ))}
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </motion.nav>
 
-            {/* Page Content */}
-            <motion.main
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="flex-grow px-6 py-10 max-w-6xl mx-auto"
-            >
+            {/* 🌍 Page Content */}
+            <main className="flex-grow px-4 sm:px-6 py-6 sm:py-10 max-w-6xl mx-auto">
                 {children}
-            </motion.main>
+            </main>
 
-            {/* Footer */}
-            <footer className="relative py-8 mt-10 border-t border-white/10 backdrop-blur-md bg-white/5">
-                <motion.div
-                    animate={{ backgroundPosition: ["0% 50%", "100% 50%"] }}
-                    transition={{ duration: 8, repeat: Infinity, repeatType: "mirror" }}
-                    className="absolute inset-0 -z-10 bg-gradient-to-r from-pink-400 via-purple-500 to-cyan-400 bg-[length:200%_200%] opacity-30 blur-3xl"
-                />
+            {/* 🌙 Footer */}
+            <footer className="relative py-6 mt-10 border-t border-white/10 backdrop-blur-md bg-white/5 text-sm text-white/70">
+                <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-3 px-6">
+                    <motion.div
+                        className="text-center sm:text-left"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                    >
+                        © 2025 Adith Narayan G • “Keep grinding until your idols become your rivals.” 🚀
+                    </motion.div>
 
-                <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 px-6 text-sm">
-                    <div className="text-white/70">
-                        © {new Date().getFullYear()} Adith • Built with 💻 & 🚀
-                    </div>
-                    <div className="flex gap-5">
+                    <div className="flex gap-6 sm:gap-8">
                         {[
                             { href: "https://github.com/", icon: Github },
                             { href: "https://linkedin.com/", icon: Linkedin },
@@ -120,11 +137,11 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
                                 href={href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                whileHover={{ scale: 1.3, rotate: 10 }}
+                                whileHover={{ scale: 1.3, rotate: 5 }}
                                 whileTap={{ scale: 0.9 }}
                                 className="text-white/80 hover:text-cyan-400 transition"
                             >
-                                <Icon size={20} />
+                                <Icon size={22} />
                             </motion.a>
                         ))}
                     </div>
