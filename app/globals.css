@@ -12,10 +12,13 @@
   --font-mono: var(--font-geist-mono);
 }
 
+<<<<<<< HEAD
 html, body {
     overflow-x: hidden;
 }
 
+=======
+>>>>>>> 0fe38a6945937f0095d0f0d5956d59383a0df2f7
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -28,6 +31,7 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+<<<<<<< HEAD
 
 @tailwind base;
 @tailwind components;
@@ -83,3 +87,5 @@ html, body {
     animation: twinkle 3s infinite ease-in-out;
 }
 
+=======
+>>>>>>> 0fe38a6945937f0095d0f0d5956d59383a0df2f7
