@@ -1,11 +1,11 @@
-import ClientLayout from "@/app/components/ClientLayout";
+import HeroSection from "./components/heroSection";
+import CosmicBackground from "./components/CosmicBackground";
 
-
-const Home = () => {
+export default function HomePage() {
     return (
-        <div>
-
-        </div>
+        <main className="relative min-h-screen overflow-hidden flex flex-col justify-center">
+            <CosmicBackground />
+            <HeroSection />
+        </main>
     );
 }
-export default Home
