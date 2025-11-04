@@ -16,7 +16,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
     title: "AdithVerse",
-    description: "A stunning, animated Next.js layout with navbar and footer",
+    description: "To the universe of ADITH",
+    icons:{
+        icon:"/portfolio.png",
+    }
 };
 
 export default function RootLayout({

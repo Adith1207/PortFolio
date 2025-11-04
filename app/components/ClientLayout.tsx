@@ -123,7 +123,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1 }}
                     >
-                        © 2025 Adith Narayan G • “Keep grinding until your idols become your rivals.” 🚀
+                        © 2025 Adith Narayan G • “Keep grinding until your idols become your rivals.”
                     </motion.div>
 
                     <div className="flex gap-6 sm:gap-8">
