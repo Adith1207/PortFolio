@@ -2,12 +2,13 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ArrowDownCircle } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative flex flex-col md:flex-row items-center justify-between min-h-[90vh] px-6 sm:px-10 md:px-20 overflow-hidden">
-      {/* 💫 Left Side - Bio Section */}
+    <section
+      className="relative flex flex-col md:flex-row items-center justify-between h-screen px-6 sm:px-10 md:px-20 overflow-hidden"
+      style={{ overscrollBehavior: "none" }}
+    >
       <div className="max-w-xl flex flex-col items-center md:items-start space-y-6 z-10">
         <motion.h1
           initial={{ y: 20, opacity: 0 }}
@@ -33,7 +34,7 @@ export default function HeroSection() {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
-          className="text-white/80 bold italic text-lg sm:text-xl leading-relaxed max-w-md text-center md:text-left"
+          className="text-white/80 text-lg sm:text-xl leading-relaxed max-w-md text-center md:text-left"
         >
           I’m a passionate creator who blends{" "}
           <span className="text-cyan-400">logic</span> and{" "}
@@ -55,7 +56,7 @@ export default function HeroSection() {
             href="/skills"
             className="px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-fuchsia-500 text-white font-semibold shadow-[0_0_20px_rgba(255,0,255,0.4)] hover:shadow-[0_0_30px_rgba(255,0,255,0.6)] transition"
           >
-            Explore Skills
+            More About Me
           </a>
 
           <a
@@ -64,16 +65,6 @@ export default function HeroSection() {
           >
             View Projects
           </a>
-        </motion.div>
-
-        {/* ⬇️ Scroll hint */}
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex items-center gap-2 text-white/60 mt-10 text-sm sm:text-base"
-        >
-          <ArrowDownCircle className="w-5 h-5 text-cyan-400" />
-          Scroll to explore the Verse
         </motion.div>
       </div>
 
