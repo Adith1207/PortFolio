@@ -203,30 +203,85 @@ export default function AboutPage() {
       </section>
 
       {/* --- 4️⃣ Hobbies Section --- */}
-      <section className="relative py-24 px-8 sm:px-12 lg:px-24 text-center">
+      <section className="relative py-24 px-8 sm:px-12 lg:px-24 text-center overflow-hidden">
+        {/* Subtle nebula background */}
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_40%,rgba(0,255,255,0.08)_0%,transparent_70%),radial-gradient(circle_at_80%_70%,rgba(255,0,255,0.06)_0%,transparent_70%)] blur-3xl" />
+
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl sm:text-5xl font-extrabold mb-10 bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent"
+          className="text-4xl sm:text-5xl font-extrabold mb-16 bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent"
         >
           Hobbies & Interests
         </motion.h2>
 
-        <div className="flex flex-wrap justify-center gap-6 max-w-3xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
           {[
-            { icon: Music, label: "Music" },
-            { icon: Camera, label: "Photography" },
-            { icon: Code, label: "Programming" },
-            { icon: Heart, label: "Fitness & Boxing" },
+            {
+              icon: "🎧",
+              title: "Music",
+              desc: "I’m deeply connected to rhythm and melody — music fuels my creativity and helps me focus.",
+              glow: "from-cyan-400/30 via-blue-400/20 to-fuchsia-400/30",
+            },
+            {
+              icon: "📸",
+              title: "Photography",
+              desc: "Capturing moments that tell stories. I love framing light, mood, and emotion in every shot.",
+              glow: "from-pink-400/30 via-fuchsia-400/20 to-violet-400/30",
+            },
+            {
+              icon: "💻",
+              title: "Programming",
+              desc: "Turning ideas into digital reality. From embedded systems to AI, coding is my creative art form.",
+              glow: "from-emerald-400/30 via-cyan-400/20 to-sky-400/30",
+            },
+            {
+              icon: "🥊",
+              title: "Fitness & Boxing",
+              desc: "Discipline and resilience come alive here — the boxing ring keeps me grounded and unstoppable.",
+              glow: "from-amber-400/30 via-rose-400/20 to-red-400/30",
+            },
+            {
+              icon: "🚴‍♂️",
+              title: "Cycling",
+              desc: "The open road clears my mind. Cycling gives me rhythm, endurance, and time to think freely.",
+              glow: "from-lime-400/30 via-emerald-400/20 to-cyan-400/30",
+            },
           ].map((hob, i) => (
             <motion.div
-              key={i}
-              whileHover={{ scale: 1.1 }}
-              className="flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-md hover:border-white/20 transition"
+              key={hob.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.08 }}
+              transition={{ delay: i * 0.1, duration: 0.6, ease: "easeOut" }}
+              className="relative p-[2px] rounded-2xl bg-gradient-to-r group"
+              style={{
+                backgroundImage: `linear-gradient(to right, ${hob.glow
+                  .replace("from-", "")
+                  .replace("to-", "")
+                  .replace("via-", "")})`,
+              }}
             >
-              <hob.icon className="w-5 h-5 text-cyan-300" />
-              <span className="text-white/80 font-medium">{hob.label}</span>
+              {/* inner content */}
+              <div className="relative rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 p-6 h-full text-left overflow-hidden group-hover:border-white/20 transition">
+                {/* glow behind icon */}
+                <div
+                  className={`absolute top-0 left-0 w-full h-full rounded-2xl opacity-0 group-hover:opacity-40 blur-2xl transition bg-gradient-to-r ${hob.glow}`}
+                />
+
+                <div className="relative flex flex-col items-start z-10">
+                  <div className="text-5xl mb-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+                    {hob.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2 text-white/90">
+                    {hob.title}
+                  </h3>
+                  <p className="text-white/70 text-sm leading-relaxed">
+                    {hob.desc}
+                  </p>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
