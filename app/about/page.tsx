@@ -173,30 +173,116 @@ export default function AboutPage() {
         </section>
       </section>
 
-      {/* --- 3️⃣ Achievements Section --- */}
-      <section className="relative py-24 px-8 sm:px-12 lg:px-24 text-center">
+      {/* --- 3️⃣ Achievements Section (Full + Matching Hobbies Style) --- */}
+      <section className="relative py-28 px-8 sm:px-12 lg:px-24 text-center overflow-hidden">
+        {/* Cosmic backdrop */}
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_25%_35%,rgba(0,255,255,0.08)_0%,transparent_70%),radial-gradient(circle_at_80%_70%,rgba(255,0,255,0.06)_0%,transparent_70%)] blur-3xl" />
+
+        {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl sm:text-5xl font-extrabold mb-10 bg-gradient-to-r from-amber-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent"
+          className="text-5xl sm:text-6xl font-extrabold mb-20 bg-gradient-to-r from-amber-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent"
         >
           Achievements
         </motion.h2>
 
-        <div className="max-w-5xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+        {/* 3 per row layout */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
           {[
-            { icon: Trophy, text: "Hackathon Finalist – National Level" },
-            { icon: Star, text: "Best Project Award – KEC TechFest 2024" },
-            { icon: Code, text: "Developed AI-based Gesture Control System" },
+            {
+              img: "/Certificates/Innoventure.jpeg",
+              title: "Innoventure",
+              desc: "Top 200 in National Level Innoventure Innovation Challenge.",
+              glow: "from-cyan-400/30 via-blue-400/20 to-fuchsia-400/30",
+            },
+            {
+              img: "/Certificates/Maths_olympiad.jpeg",
+              title: "International Maths Olympiad",
+              desc: "Bronze Medalist – for excellence in analytical problem-solving.",
+              glow: "from-pink-400/30 via-fuchsia-400/20 to-violet-400/30",
+            },
+            {
+              img: "/Certificates/Ted_ed.jpeg",
+              title: "TED-Ed Speaker",
+              desc: "Delivered an international TED-Ed talk on recycling semi-conductor chips which was a burning issue back then in COVID.",
+              glow: "from-emerald-400/30 via-cyan-400/20 to-sky-400/30",
+            },
+            {
+              img: "/Certificates/Business_proposal.jpeg",
+              title: "School Enterprise Challenge",
+              desc: "Created a sustainable business initiative during high school.",
+              glow: "from-lime-400/30 via-emerald-400/20 to-cyan-400/30",
+            },
+            {
+              img: "/Certificates/cricket.jpeg",
+              title: "U-14 Cricket Champion",
+              desc: "Led the district team as captain to victory in the U-14 tournament.",
+              glow: "from-amber-400/30 via-rose-400/20 to-red-400/30",
+            },
+            {
+              img: "/Certificates/cmca.jpeg",
+              title: "Active CMCA Member",
+              desc: "Contributed to civic and ethical leadership programs in 9th grade.",
+              glow: "from-teal-400/30 via-cyan-400/20 to-fuchsia-400/30",
+            },
+            {
+              img: "/Certificates/art.jpeg",
+              title: "Zonal Art Competition",
+              desc: "2nd Place in Rainbow Art & Craft Organisation’s zonal contest.",
+              glow: "from-pink-400/30 via-purple-400/20 to-violet-400/30",
+            },
+            {
+              img: "/Certificates/leader.jpeg",
+              title: "School Head Boy",
+              desc: "Elected democratically as Head Boy – leading 1200+ students.",
+              glow: "from-fuchsia-400/30 via-pink-400/20 to-rose-400/30",
+            },
           ].map((ach, i) => (
             <motion.div
-              key={i}
+              key={ach.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               whileHover={{ scale: 1.05 }}
-              className="rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 p-6 text-left hover:border-white/20 transition"
+              transition={{ delay: i * 0.05, duration: 0.6, ease: "easeOut" }}
+              className="relative p-[2px] rounded-2xl bg-gradient-to-r group"
+              style={{
+                backgroundImage: `linear-gradient(to right, ${ach.glow
+                  .replace("from-", "")
+                  .replace("to-", "")
+                  .replace("via-", "")})`,
+              }}
             >
-              <ach.icon className="w-8 h-8 text-fuchsia-400 mb-3" />
-              <p className="text-white/80">{ach.text}</p>
+              {/* Glass card */}
+              <div className="relative rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 p-4 h-full text-left overflow-hidden group-hover:border-white/20 transition">
+                {/* Glow on hover */}
+                <div
+                  className={`absolute top-0 left-0 w-full h-full rounded-2xl opacity-0 group-hover:opacity-40 blur-2xl transition bg-gradient-to-r ${ach.glow}`}
+                />
+
+                {/* Thumbnail */}
+                <div className="relative aspect-video rounded-xl overflow-hidden mb-4">
+                  <Image
+                    src={ach.img}
+                    alt={ach.title}
+                    width={500}
+                    height={280}
+                    className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+
+                {/* Text */}
+                <div className="relative z-10">
+                  <h3 className="text-xl font-semibold mb-2 text-white/90">
+                    {ach.title}
+                  </h3>
+                  <p className="text-white/70 text-sm leading-relaxed">
+                    {ach.desc}
+                  </p>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
