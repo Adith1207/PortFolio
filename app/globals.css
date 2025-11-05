@@ -59,3 +59,19 @@ html, body {
 .animate-twinkle {
   animation: twinkle 3s infinite ease-in-out;
 }
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+  }
+  .dark {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+}
