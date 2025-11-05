@@ -53,7 +53,7 @@ export default function HeroSection() {
           className="flex flex-wrap items-center gap-4 mt-6"
         >
           <a
-            href="/skills"
+            href="/about"
             className="px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-fuchsia-500 text-white font-semibold shadow-[0_0_20px_rgba(255,0,255,0.4)] hover:shadow-[0_0_30px_rgba(255,0,255,0.6)] transition"
           >
             More About Me

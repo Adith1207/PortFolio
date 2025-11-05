@@ -16,10 +16,8 @@ import {
   X,
   Sparkles,
 } from "lucide-react";
-
 import BrandTitle from "./brandTitle";
 import CosmicBackground from "./CosmicBackground";
-import ThemeToggle from "./themeToggle"; // 🌙 Theme toggle button
 
 export default function ClientLayout({
   children,
@@ -30,7 +28,7 @@ export default function ClientLayout({
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden text-white transition-colors duration-300 bg-background text-foreground">
+    <div className="min-h-screen flex flex-col relative overflow-hidden text-white">
       {/* 🌌 Cosmic Background */}
       <CosmicBackground />
 
@@ -39,10 +37,10 @@ export default function ClientLayout({
         initial={{ y: -80 }}
         animate={{ y: 0 }}
         transition={{ type: "spring", stiffness: 60 }}
-        className="sticky top-0 z-50 backdrop-blur-xl bg-white/10 dark:bg-black/20 border-b border-white/10 shadow-lg"
+        className="sticky top-0 z-50 backdrop-blur-xl bg-white/10 border-b border-white/10 shadow-lg"
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3 sm:py-4">
-          {/* 🌟 Logo */}
+          {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 200 }}
@@ -52,15 +50,15 @@ export default function ClientLayout({
             <BrandTitle />
           </motion.div>
 
-          {/* 📱 Mobile menu toggle */}
+          {/* Mobile toggle */}
           <div className="sm:hidden">
             <button onClick={() => setMenuOpen(!menuOpen)}>
               {menuOpen ? <X size={26} /> : <Menu size={26} />}
             </button>
           </div>
 
-          {/* 💻 Desktop nav links + Theme Toggle */}
-          <div className="hidden sm:flex items-center gap-8 text-lg font-semibold tracking-wide">
+          {/* Desktop nav links */}
+          <div className="hidden sm:flex gap-8 text-lg font-semibold tracking-wide">
             {[
               { name: "Home", href: "/", icon: Home },
               { name: "About", href: "/about", icon: User },
@@ -89,13 +87,10 @@ export default function ClientLayout({
                 </motion.div>
               );
             })}
-
-            {/* 🌗 Theme toggle button */}
-            <ThemeToggle />
           </div>
         </div>
 
-        {/* 📱 Mobile menu */}
+        {/* Mobile menu */}
         <AnimatePresence>
           {menuOpen && (
             <motion.div
@@ -124,11 +119,6 @@ export default function ClientLayout({
                   {link.name}
                 </Link>
               ))}
-
-              {/* 🌙 Theme toggle inside mobile menu */}
-              <div className="mt-4">
-                <ThemeToggle />
-              </div>
             </motion.div>
           )}
         </AnimatePresence>
