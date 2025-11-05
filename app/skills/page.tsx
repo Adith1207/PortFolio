@@ -27,6 +27,9 @@ import {
   Brain,
   Zap,
   Sparkles,
+  Clock,
+  Heart,
+  Puzzle,
 } from "lucide-react";
 
 const technicalSkills = [
@@ -95,6 +98,24 @@ const softSkills = [
     desc: "Enjoy merging logic with imagination — crafting unique solutions, designs, and ideas.",
     icon: Sparkles,
     glow: "from-violet-400/30 via-purple-400/20 to-pink-400/30",
+  },
+  {
+    title: "Time Management",
+    desc: "Balancing academics, leadership, and innovation — mastering the art of focus and consistency.",
+    icon: Clock,
+    glow: "from-cyan-400/30 via-teal-400/20 to-emerald-400/30",
+  },
+  {
+    title: "Emotional Intelligence",
+    desc: "Empathizing with others and managing emotions effectively to keep a positive, grounded mindset.",
+    icon: Heart,
+    glow: "from-pink-400/30 via-rose-400/20 to-amber-400/30",
+  },
+  {
+    title: "Critical Thinking",
+    desc: "Analyzing challenges deeply and logically — building clarity before jumping into solutions.",
+    icon: Puzzle,
+    glow: "from-fuchsia-400/30 via-cyan-400/20 to-blue-400/30",
   },
 ];
 
