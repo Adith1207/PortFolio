@@ -1,19 +1,17 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 html, body {
-    overflow-x: hidden;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,65 +19,43 @@ html, body {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-html, body {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Arial, Helvetica, sans-serif;
+  }
 }
 
 ::selection {
-    background: #ff00cc80;
-    color: white;
+  background: #ff00cc80;
+  color: white;
 }
 
+/* ✨ Twinkle animation */
 @keyframes twinkle {
-    0%, 100% {
-        opacity: 0.3;
-        transform: scale(1);
-    }
-    50% {
-        opacity: 1;
-        transform: scale(1.3);
-    }
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
 }
 
 .star {
-    position: absolute;
-    background: white;
-    border-radius: 50%;
-    filter: drop-shadow(0 0 3px rgba(255,255,255,0.7));
-    animation: twinkle 4s ease-in-out infinite;
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 3px rgba(255,255,255,0.7));
+  animation: twinkle 4s ease-in-out infinite;
 }
 
+/* 🌫 Floating animation */
 @keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-6px);
-    }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
 .animate-float {
-    animation: float 3.6s ease-in-out infinite;
+  animation: float 3.6s ease-in-out infinite;
 }
 
-@keyframes twinkle {
-    0%, 100% { opacity: 0.2; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.3); }
-}
 .animate-twinkle {
-    animation: twinkle 3s infinite ease-in-out;
+  animation: twinkle 3s infinite ease-in-out;
 }
-
