@@ -9,7 +9,8 @@ export default function HeroSection() {
       className="relative flex flex-col md:flex-row items-center justify-between h-screen px-6 sm:px-10 md:px-20 overflow-hidden"
       style={{ overscrollBehavior: "none" }}
     >
-      <div className="max-w-xl flex flex-col items-center md:items-start space-y-6 z-10">
+      {/* 🌌 Left Section */}
+      <div className="max-w-xl flex flex-col items-center md:items-start space-y-6 z-20">
         <motion.h1
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -29,7 +30,7 @@ export default function HeroSection() {
           </span>
         </motion.h1>
 
-        {/* 🌌 Short Bio */}
+        {/* 💫 Short Bio */}
         <motion.p
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -68,23 +69,35 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* 🖼️ Right Side - Image */}
+      {/* 🪐 Right Section - Hero Image */}
       <motion.div
         initial={{ x: 60, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
-        className="relative mt-12 md:mt-0 md:-ml-32 z-0"
+        className="relative mt-12 md:mt-0 md:-ml-28 z-10"
       >
-        <div className="relative w-[340px] h-[430px] sm:w-[420px] sm:h-[520px] overflow-hidden rounded-3xl shadow-xl shadow-black/30">
+        <motion.div
+          animate={{ y: [0, -10, 0] }}
+          transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+          className="relative w-[340px] h-[430px] sm:w-[420px] sm:h-[520px] rounded-[2rem] overflow-hidden 
+                     border-[3px] border-white/60 shadow-[0_0_50px_rgba(255,255,255,0.25)]
+                     before:content-[''] before:absolute before:inset-0 before:rounded-[2rem]
+                     before:bg-[radial-gradient(circle_at_50%_120%,rgba(255,255,255,0.15),transparent_60%)]
+                     before:z-10"
+          style={{
+            boxShadow:
+              "0 0 25px rgba(255,255,255,0.2), 0 0 60px rgba(180,0,255,0.3), inset 0 0 20px rgba(255,255,255,0.1)",
+          }}
+        >
           <Image
-            src="/profile2.jpeg"
+            src="/adith_profile.png"
             alt="Adith Narayan G"
             width={500}
             height={600}
-            className="object-cover w-full h-full"
+            className="object-cover w-full h-full scale-105"
             priority
           />
-        </div>
+        </motion.div>
       </motion.div>
     </section>
   );
