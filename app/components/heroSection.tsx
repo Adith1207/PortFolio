@@ -71,30 +71,30 @@ export default function HeroSection() {
 
       {/* 🪐 Right Section - Hero Image */}
       <motion.div
-        initial={{ x: 60, opacity: 0 }}
+        initial={{ x: 80, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
-        className="relative mt-12 md:mt-0 md:-ml-28 z-10"
+        className="relative mt-12 md:mt-0 md:-ml-48 z-10"
       >
         <motion.div
           animate={{ y: [0, -10, 0] }}
           transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-          className="relative w-[340px] h-[430px] sm:w-[420px] sm:h-[520px] rounded-[2rem] overflow-hidden 
-                     border-[3px] border-white/60 shadow-[0_0_50px_rgba(255,255,255,0.25)]
+          className="relative w-[460px] h-[560px] sm:w-[540px] sm:h-[640px] rounded-[2rem] overflow-hidden 
+                     border-[3px] border-white/70 shadow-[0_0_50px_rgba(255,255,255,0.3)]
                      before:content-[''] before:absolute before:inset-0 before:rounded-[2rem]
                      before:bg-[radial-gradient(circle_at_50%_120%,rgba(255,255,255,0.15),transparent_60%)]
                      before:z-10"
           style={{
             boxShadow:
-              "0 0 25px rgba(255,255,255,0.2), 0 0 60px rgba(180,0,255,0.3), inset 0 0 20px rgba(255,255,255,0.1)",
+              "0 0 25px rgba(255,255,255,0.3), 0 0 80px rgba(180,0,255,0.4), inset 0 0 20px rgba(255,255,255,0.1)",
           }}
         >
           <Image
             src="/adith_profile.png"
             alt="Adith Narayan G"
-            width={500}
-            height={600}
-            className="object-cover w-full h-full scale-105"
+            width={600}
+            height={700}
+            className="object-cover w-full h-full scale-110"
             priority
           />
         </motion.div>
