@@ -173,6 +173,78 @@ export default function AboutPage() {
         </section>
       </section>
 
+      {/* --- 🌟 Experience Section --- */}
+      <section className="relative py-20 px-8 sm:px-12 lg:px-24">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl sm:text-5xl font-extrabold text-center mb-16 bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent"
+        >
+          Internship Experience
+        </motion.h2>
+
+        <div className="relative max-w-4xl mx-auto before:absolute before:top-0 before:bottom-0 before:left-1/2 before:-translate-x-1/2 before:w-[3px] before:bg-gradient-to-b before:from-cyan-400 via-fuchsia-400 to-pink-400">
+          {[
+            {
+              company: "Axiatix Consulting Services",
+              role: "Software Product Development Intern",
+              duration: "May 27 – June 30 2025",
+              desc: [
+                "Developed backend services using Flask with API creation and integration.",
+                "Built responsive cross-platform apps in Flutter using PyTorch and Dart.",
+                "Integrated LLMs and RAG pipelines for intelligent language-based features.",
+              ],
+              glow: "from-cyan-400 via-blue-400 to-fuchsia-400",
+            },
+            {
+              company: "Qualitrix",
+              role: "Marketing & Web Development Intern",
+              duration: "april 30 - june 26 2025",
+              desc: [
+                "Collaborated with marketing team to enhance company outreach.",
+                "Proposed & organized hackathons to attract developer engagement.",
+                "Designed and deployed a promotional event webpage.",
+              ],
+              glow: "from-pink-400 via-fuchsia-400 to-violet-400",
+            },
+          ].map((exp, i) => (
+            <motion.div
+              key={exp.company}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: i * 0.2 }}
+              className={`relative mb-16 flex flex-col md:flex-row items-center ${
+                i % 2 === 0 ? "md:pl-[55%]" : "md:pr-[55%]"
+              }`}
+            >
+              {/* Glowing node */}
+              <div
+                className={`absolute left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-gradient-to-r ${exp.glow} shadow-[0_0_20px_rgba(255,255,255,0.6)] border-2 border-white/40`}
+              />
+
+              {/* Card */}
+              <div className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(255,255,255,0.2)] transition w-full md:w-[80%]">
+                <h3
+                  className={`text-2xl font-bold bg-gradient-to-r ${exp.glow} bg-clip-text text-transparent`}
+                >
+                  {exp.company}
+                </h3>
+                <p className="text-lg font-semibold text-white mt-1">
+                  {exp.role}
+                </p>
+                <p className="text-sm text-white/60 mb-4">{exp.duration}</p>
+                <ul className="list-disc list-inside space-y-2 text-white/80 text-sm">
+                  {exp.desc.map((d) => (
+                    <li key={d}>{d}</li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* --- 3️⃣ Achievements Section (Full + Matching Hobbies Style) --- */}
       <section className="relative py-28 px-8 sm:px-12 lg:px-24 text-center overflow-hidden">
         {/* Cosmic backdrop */}

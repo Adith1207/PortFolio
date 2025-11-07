@@ -2,18 +2,19 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Download } from "lucide-react";
 
 export default function HeroSection() {
   return (
     <section
       className="relative flex flex-col md:flex-row items-center justify-between h-screen 
-                 px-4 sm:px-8 md:px-12 overflow-hidden" // 🔹 reduced padding from 20 → 12
+                 px-4 sm:px-8 md:px-12 overflow-hidden"
       style={{ overscrollBehavior: "none" }}
     >
       {/* 🌌 Left Section */}
       <div
         className="max-w-xl flex flex-col items-center md:items-start space-y-6 z-20 
-                   md:-ml-10" // 🔹 added slight negative margin to pull it left
+                   md:-ml-10"
       >
         <motion.h1
           initial={{ y: 20, opacity: 0 }}
@@ -80,6 +81,28 @@ export default function HeroSection() {
             View Projects
           </a>
         </motion.div>
+
+        {/* 🧾 DOWNLOAD RESUME - standout version */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.9, duration: 0.8 }}
+          className="mt-8"
+        >
+          <a
+            href="/Aveva_resume.pdf"
+            download="Adith_Narayan_Resume.pdf"
+            className="flex items-center justify-center gap-3 px-8 py-4 rounded-full 
+                       bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 
+                       text-black font-extrabold text-lg tracking-wide uppercase 
+                       shadow-[0_0_35px_rgba(255,165,0,0.5)] 
+                       hover:shadow-[0_0_45px_rgba(255,140,0,0.8)] 
+                       hover:scale-105 transition-transform duration-300"
+          >
+            <Download className="w-6 h-6" />
+            Download Resume
+          </a>
+        </motion.div>
       </div>
 
       {/* 🪐 Right Section - Hero Image */}
@@ -87,7 +110,7 @@ export default function HeroSection() {
         initial={{ x: 80, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
-        className="relative mt-12 md:mt-0 md:-ml-40 z-10" // 🔹 adjusted image spacing for balance
+        className="relative mt-12 md:mt-0 md:-ml-40 z-10"
       >
         <motion.div
           animate={{ y: [0, -10, 0] }}
