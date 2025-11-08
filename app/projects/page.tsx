@@ -2,26 +2,42 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { projectsData } from "../data/projectsData";
 import CosmicBackground from "@/app/components/CosmicBackground";
 import { Github } from "lucide-react";
 
 export default function ProjectsPage() {
   const [filter, setFilter] = useState("All");
+  const [isClient, setIsClient] = useState(false); // ✅ prevent SSR mismatch
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const filteredProjects =
     filter === "All"
       ? projectsData
       : projectsData.filter((p) => p.category === filter);
 
-  const categories = ["All", "Web", "Embedded", "AI"];
+  const categories = ["All", "Web", "Embedded", "AI", "Algorithms"];
+
+  // ⚠️ Don’t render until after hydration
+  if (!isClient) {
+    return (
+      <main className="relative min-h-screen text-white flex items-center justify-center">
+        <p className="text-white/50 text-lg animate-pulse">
+          Initializing Projects Universe 🚀...
+        </p>
+      </main>
+    );
+  }
 
   return (
     <main className="relative min-h-screen overflow-hidden text-white px-6 sm:px-10 lg:px-20 py-24">
       <CosmicBackground />
 
-      {/* 🔭 Title */}
+      {/* Title */}
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -31,7 +47,7 @@ export default function ProjectsPage() {
         Projects Universe 🚀
       </motion.h1>
 
-      {/* 🔮 Filter Bar */}
+      {/* Filter Bar */}
       <div className="flex flex-wrap justify-center gap-4 mb-16">
         {categories.map((cat) => (
           <button
@@ -48,7 +64,7 @@ export default function ProjectsPage() {
         ))}
       </div>
 
-      {/* 🌌 Projects Grid */}
+      {/* Projects Grid */}
       <div
         className="
           grid 
@@ -84,7 +100,7 @@ export default function ProjectsPage() {
               gap-6
             "
           >
-            {/* 🖼️ Image on Top */}
+            {/* Image on Top */}
             <div className="relative w-full h-[260px] md:h-[300px] rounded-2xl overflow-hidden">
               <Image
                 src={proj.image}
@@ -95,7 +111,7 @@ export default function ProjectsPage() {
               />
             </div>
 
-            {/* 📜 Text Below */}
+            {/* Text */}
             <div className="flex flex-col justify-between w-full">
               <div>
                 <h3 className="text-2xl font-bold text-white mb-3">
@@ -105,7 +121,6 @@ export default function ProjectsPage() {
                   {proj.description}
                 </p>
 
-                {/* Tech Tags */}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {proj.tech.map((t) => (
                     <span
@@ -118,7 +133,7 @@ export default function ProjectsPage() {
                 </div>
               </div>
 
-              {/* Buttons */}
+              {/* GitHub Button */}
               <div className="flex gap-4">
                 <a
                   href={proj.github}
