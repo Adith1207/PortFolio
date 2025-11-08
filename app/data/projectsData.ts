@@ -4,7 +4,7 @@ export const projectsData = [
     title: "Smart Announcement System using STM32 & ESP8266",
     description:
       "The Smart Announcement System is an IoT-based embedded project designed to modernize traditional public announcement setups. Unlike existing systems that rely on manual triggering or physical switches, this project integrates an ESP8266-hosted web dashboard that allows remote announcements and maintains a digital log of all messages broadcasted. The concept was inspired by observing inefficiencies in our college’s conventional announcement system — prompting the creation of a smarter, automated, and connected alternative.",
-    tech: ["Embedded C", "STM32", "MQTT", "IoT"],
+    tech: ["Embedded C", "STM32", "I2C", "IoT","Web Devolopment","I2S","UART Tx/Rx"],
     github: "https://github.com/Adith1207/Smart-Announcement-System",
     image: "/project_images/sas.png",
     category: "Embedded",

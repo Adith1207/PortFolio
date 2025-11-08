@@ -102,7 +102,7 @@ export default function AboutPage() {
               Schooling
             </h3>
             <p className="text-2xl sm:text-3xl font-bold text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] mb-4">
-              The Ashok Leyland School
+              The Ashok Leyland School (2011-2023)
             </p>
             <p className="text-white/70 mb-5 leading-relaxed">
               My school years laid the foundation of discipline, curiosity, and
@@ -152,7 +152,7 @@ export default function AboutPage() {
               College
             </h3>
             <p className="text-2xl sm:text-3xl font-bold text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] mb-4">
-              Amrita Vishwa Vidyapeetham,Coimbatore
+              Amrita Vishwa Vidyapeetham,Coimbatore (2023-2027)
             </p>
             <p className="text-white/70 mb-5 leading-relaxed">
               My years at AVV have been a transformative chapter of exploration
