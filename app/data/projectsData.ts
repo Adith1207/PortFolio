@@ -12,7 +12,7 @@ export const projectsData = [
   {
     title: "Portfolio Website",
     description:
-      "Next.js portfolio featuring framer-motion animations, cosmic gradients, and creative UI/UX components for personal branding.",
+      "“A visually immersive Next.js portfolio that blends cutting-edge Framer Motion animations, cosmic-inspired gradients, and modern UI/UX aesthetics to craft a distinctive personal brand experience. Designed with performance, interactivity, and emotion in mind, it showcases a seamless fusion of creative frontend engineering and artistic expression — highlighting projects, skills, and achievements through dynamic visuals, fluid transitions, and a futuristic design language that reflects individuality and innovation.”",
     tech: ["Next.js", "TailwindCSS", "Framer Motion"],
     github: "https://github.com/Adith1207/PortFolio",
     image: "/project_images/portfolio.png",
