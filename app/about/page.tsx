@@ -204,7 +204,7 @@ export default function AboutPage() {
               desc: [
                 "Collaborated with marketing team to enhance company outreach.",
                 "Proposed & organized hackathons to attract developer engagement.",
-                "Designed and deployed a promotional event webpage.",
+                "Designed and coded my imagination of a promotional event webpage into reality.",
               ],
               glow: "from-pink-400 via-fuchsia-400 to-violet-400",
             },

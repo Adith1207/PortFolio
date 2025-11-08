@@ -15,7 +15,7 @@ export const projectsData = [
       "“A visually immersive Next.js portfolio that blends cutting-edge Framer Motion animations, cosmic-inspired gradients, and modern UI/UX aesthetics to craft a distinctive personal brand experience. Designed with performance, interactivity, and emotion in mind, it showcases a seamless fusion of creative frontend engineering and artistic expression — highlighting projects, skills, and achievements through dynamic visuals, fluid transitions, and a futuristic design language that reflects individuality and innovation.”",
     tech: ["Next.js", "TailwindCSS", "Framer Motion"],
     github: "https://github.com/Adith1207/PortFolio",
-    image: "/project_images/portfolio.png",
+    image: "/project_images/portFolio.png",
     category: "Web",
   },
   {
@@ -24,7 +24,7 @@ export const projectsData = [
       "AIRcursor is an AI-driven system inspired by Iron Man’s interactive holographic tech. It tracks hand gestures and finger movements in real time using a webcam and translates them into desktop actions — from controlling the cursor to executing custom commands. Built to bridge human motion and digital interaction, it delivers a seamless, futuristic user experience that feels almost cinematic.",
     tech: ["Python", "OpenCV", "MediaPipe", "Computer Vision", "AI"],
     github: "https://github.com/Adith1207/AirCursor",
-    image: "/project_images/aircursor.png",
+    image: "/project_images/airCursor.png",
     category: "AI",
   },
 
@@ -42,7 +42,7 @@ export const projectsData = [
       "Streamlit"
     ],
     github: "https://github.com/Adith1207/docuMentor",
-    image: "/project_images/documentor.png",
+    image: "/project_images/Documentor.jpeg",
     category: "AI",
   },
 
@@ -61,7 +61,7 @@ export const projectsData = [
       "LLM Integration"
     ],
     github: "https://github.com/Adith1207/GenOjas",
-    image: "/project_images/genojas.png",
+    image: "/project_images/GenOjas.png",
     category: "AI",
   },
 
@@ -71,7 +71,7 @@ export const projectsData = [
       "BDD (Binary Decision Diagram) is a logic synthesis tool designed to efficiently represent and simplify Boolean functions derived from truth tables. It generates optimized Sum of Products (SOP) and Product of Sums (POS) expressions, offering a human-readable Boolean algebra output. This project bridges digital logic design and computational optimization, making Boolean function analysis faster, accurate, and more visual.",
     tech: ["Python", "Boolean Algebra", "Digital Logic Design", "Algorithms", "Data Structures"],
     github: "https://github.com/Adith1207/BDD",
-    image: "/project_images/bdd.png",
+    image: "/project_images/BDD.png",
     category: "Algorithms",
   },
 
@@ -89,7 +89,7 @@ export const projectsData = [
       "QR Code Scanner"
     ],
     github: "https://github.com/Adith1207/gokulashtami25",
-    image: "/project_images/navarasa.png",
+    image: "/project_images/gokulashtami.jpeg",
     category: "Web",
   },
 
@@ -107,7 +107,7 @@ export const projectsData = [
       "Video Processing"
     ],
     github: "https://github.com/Adith1207/SenseVid",
-    image: "/project_images/sensevid.png",
+    image: "/project_images/senseVid.jpeg",
     category: "Algorithms",
   },
 
@@ -125,7 +125,7 @@ export const projectsData = [
       "amixer"
     ],
     github: "https://github.com/Adith1207/Linux_terminal_assistant",
-    image: "/project_images/terminal_assistant.png",
+    image: "/project_images/CLI.png",
     category: "Algorithms",
   },
 
@@ -142,7 +142,7 @@ export const projectsData = [
       "Mobile Development"
     ],
     github: "https://github.com/Adith1207/Social_Score_Card",
-    image: "/project_images/cibil_app.png",
+    image: "/project_images/cibil_score1.webp",
     category: "Web",
   },
 
@@ -162,7 +162,7 @@ export const projectsData = [
       "Image Classification"
     ],
     github: "https://github.com/Adith1207/Plant_Disease_App",
-    image: "/project_images/plant_disease.png",
+    image: "/project_images/plant_disease.jpg",
     category: "AI",
   },
 
@@ -180,7 +180,7 @@ export const projectsData = [
       "Cross-Platform"
     ],
     github: "https://github.com/Adith1207/Hamnosis_Generator",
-    image: "/project_images/hamnosys.png",
+    image: "/project_images/hamnosys.jpg",
     category: "Web",
   },
 
