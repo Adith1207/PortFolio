@@ -3,7 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ClientLayout from "./components/ClientLayout";
 import React from "react";
-import { ThemeProvider } from "next-themes"; // ✅ new import
+import { ThemeProvider } from "next-themes";
+import { Analytics } from "@vercel/analytics/react"; // ✅ ADD THIS
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,7 +34,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >
-        {/* ✅ Wrap everything inside ThemeProvider */}
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -41,6 +41,9 @@ export default function RootLayout({
         >
           <ClientLayout>{children}</ClientLayout>
         </ThemeProvider>
+
+        {/* ✅ ADD ANALYTICS HERE — inside body but outside layout */}
+        <Analytics />
       </body>
     </html>
   );
