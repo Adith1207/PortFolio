@@ -7,8 +7,8 @@ import { Download } from "lucide-react";
 export default function HeroSection() {
   return (
     <section
-      className="relative flex flex-col md:flex-row items-center justify-between h-screen 
-                 px-4 sm:px-8 md:px-12 overflow-hidden"
+      className="relative flex flex-col md:flex-row items-center justify-between 
+                 min-h-screen px-4 sm:px-8 md:px-12 overflow-hidden"
       style={{ overscrollBehavior: "none" }}
     >
       {/* 🌌 Left Section */}
@@ -30,7 +30,8 @@ export default function HeroSection() {
             </span>
             <span
               className="bg-gradient-to-r from-fuchsia-400 via-pink-400 to-purple-400 
-                             bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(255,0,255,0.6)]"
+                         bg-clip-text text-transparent 
+                         drop-shadow-[0_0_8px_rgba(255,0,255,0.6)]"
             >
               Narayan{" "}
             </span>
@@ -82,7 +83,7 @@ export default function HeroSection() {
           </a>
         </motion.div>
 
-        {/* 🧾 DOWNLOAD RESUME - standout version */}
+        {/* 🧾 DOWNLOAD RESUME */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -105,7 +106,7 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* 🪐 Right Section - Hero Image */}
+      {/* 🪐 Right Section - Responsive Hero Image */}
       <motion.div
         initial={{ x: 80, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
@@ -115,13 +116,19 @@ export default function HeroSection() {
         <motion.div
           animate={{ y: [0, -10, 0] }}
           transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-          className="relative w-[460px] h-[560px] sm:w-[540px] sm:h-[640px] rounded-[2rem] 
-                     overflow-hidden border-[3px] border-white/70 
-                     shadow-[0_0_50px_rgba(255,255,255,0.3)]
-                     before:content-[''] before:absolute before:inset-0 
-                     before:rounded-[2rem]
-                     before:bg-[radial-gradient(circle_at_50%_120%,rgba(255,255,255,0.15),transparent_60%)]
-                     before:z-10"
+          className="
+            relative
+            w-[85vw] max-w-[430px]
+            h-[60vh] max-h-[550px]
+            sm:w-[460px] sm:h-[560px]
+            lg:w-[540px] lg:h-[640px]
+            rounded-[2rem] overflow-hidden border-[3px] border-white/70
+            shadow-[0_0_50px_rgba(255,255,255,0.3)]
+            before:content-[''] before:absolute before:inset-0 
+            before:rounded-[2rem]
+            before:bg-[radial-gradient(circle_at_50%_120%,rgba(255,255,255,0.15),transparent_60%)]
+            before:z-10
+          "
           style={{
             boxShadow:
               "0 0 25px rgba(255,255,255,0.3), 0 0 80px rgba(180,0,255,0.4), inset 0 0 20px rgba(255,255,255,0.1)",
@@ -130,9 +137,8 @@ export default function HeroSection() {
           <Image
             src="/final_design.png"
             alt="Adith Narayan G"
-            width={600}
-            height={700}
-            className="object-cover w-full h-full scale-110"
+            fill
+            className="object-cover scale-110"
             priority
           />
         </motion.div>

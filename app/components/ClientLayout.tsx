@@ -17,6 +17,7 @@ import {
   Sparkles,
   MonitorSmartphone,
 } from "lucide-react";
+
 import BrandTitle from "./brandTitle";
 import CosmicBackground from "./CosmicBackground";
 
@@ -33,24 +34,28 @@ export default function ClientLayout({
   const [hydrated, setHydrated] = useState(false);
   const [hasAccepted, setHasAccepted] = useState(false);
 
-  // 🧠 Ensure this only runs on the client
+  // Ensure hydration first
   useEffect(() => {
     setHydrated(true);
   }, []);
 
-  // 🧠 Detect mobile + check saved preference
+  // 📱 REAL mobile detection (NOT screen size)
   useEffect(() => {
     if (!hydrated) return;
 
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const isMobileDevice =
+      /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(
+        navigator.userAgent
+      );
+
     const accepted =
       localStorage.getItem("desktop_warning_accepted") === "true";
 
     setHasAccepted(accepted);
-    setShowWarning(isMobile && !accepted);
+    setShowWarning(isMobileDevice && !accepted);
   }, [hydrated]);
 
-  // ✅ Button click handler
+  // Accept button handler
   const handleAccept = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
@@ -59,9 +64,8 @@ export default function ClientLayout({
     setHasAccepted(true);
     setShowWarning(false);
 
-    // ✅ Route to your app’s main page (app/page.tsx → "/")
     setTimeout(() => {
-      router.replace("/"); // this goes directly to your homepage
+      router.replace("/");
     }, 150);
   };
 
@@ -87,14 +91,14 @@ export default function ClientLayout({
             <BrandTitle />
           </motion.div>
 
-          {/* Mobile toggle */}
+          {/* Mobile menu toggle */}
           <div className="sm:hidden">
             <button onClick={() => setMenuOpen(!menuOpen)}>
               {menuOpen ? <X size={26} /> : <Menu size={26} />}
             </button>
           </div>
 
-          {/* Desktop nav links */}
+          {/* Desktop Nav */}
           <div className="hidden sm:flex gap-8 text-lg font-semibold tracking-wide">
             {[
               { name: "Home", href: "/", icon: Home },
@@ -103,6 +107,7 @@ export default function ClientLayout({
               { name: "Projects", href: "/projects", icon: Code2 },
             ].map((link) => {
               const active = pathname === link.href;
+
               return (
                 <motion.div
                   key={link.name}
@@ -126,7 +131,7 @@ export default function ClientLayout({
           </div>
         </div>
 
-        {/* Mobile menu */}
+        {/* Mobile dropdown */}
         <AnimatePresence>
           {menuOpen && (
             <motion.div
@@ -203,7 +208,7 @@ export default function ClientLayout({
         </div>
       </footer>
 
-      {/* 🪐 Fullscreen Warning Overlay */}
+      {/* 📱 Fullscreen Mobile Warning */}
       <AnimatePresence>
         {hydrated && showWarning && !hasAccepted && (
           <motion.div
@@ -212,8 +217,8 @@ export default function ClientLayout({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[999] flex flex-col items-center justify-center text-center px-6 bg-gradient-to-b from-[#030014] via-[#0a001e] to-[#000010]"
-            style={{ pointerEvents: "auto" }}
+            className="fixed inset-0 z-[999] flex flex-col items-center justify-center text-center px-6
+                       bg-gradient-to-b from-[#030014] via-[#0a001e] to-[#000010]"
           >
             <MonitorSmartphone className="w-16 h-16 text-cyan-400 mb-6 drop-shadow-[0_0_20px_rgba(0,255,255,0.5)]" />
 
@@ -221,7 +226,8 @@ export default function ClientLayout({
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-3xl sm:text-4xl font-extrabold text-transparent bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-pink-400 bg-clip-text"
+              className="text-3xl sm:text-4xl font-extrabold text-transparent
+                         bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-pink-400 bg-clip-text"
             >
               Best viewed on Desktop 💻
             </motion.h1>
@@ -241,7 +247,10 @@ export default function ClientLayout({
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleAccept}
-              className="mt-8 px-8 py-3 rounded-full font-semibold text-white bg-gradient-to-r from-cyan-500 to-fuchsia-500 shadow-[0_0_25px_rgba(255,0,255,0.4)] hover:shadow-[0_0_35px_rgba(255,0,255,0.6)] transition z-[1000]"
+              className="mt-8 px-8 py-3 rounded-full font-semibold text-white
+                         bg-gradient-to-r from-cyan-500 to-fuchsia-500
+                         shadow-[0_0_25px_rgba(255,0,255,0.4)]
+                         hover:shadow-[0_0_35px_rgba(255,0,255,0.6)] transition"
             >
               Okay, Continue Anyway
             </motion.button>
