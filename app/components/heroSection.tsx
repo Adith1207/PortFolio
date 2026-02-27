@@ -7,15 +7,12 @@ import { Download } from "lucide-react";
 export default function HeroSection() {
   return (
     <section
-      className="relative flex flex-col md:flex-row items-center justify-between 
+      className="relative flex flex-col md:flex-row items-center justify-center gap-10 lg:gap-20
                  w-full h-full flex-grow px-4 sm:px-8 md:px-12 overflow-hidden py-10"
       style={{ overscrollBehavior: "none" }}
     >
       {/* 🌌 Left Section */}
-      <div
-        className="max-w-xl flex flex-col items-center md:items-start space-y-6 z-20 
-                   md:-ml-10"
-      >
+      <div className="max-w-xl flex flex-col items-center md:items-start space-y-6 z-20">
         <motion.h1
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -111,7 +108,7 @@ export default function HeroSection() {
         initial={{ x: 80, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
-        className="relative mt-12 md:mt-0 md:-ml-40 z-10"
+        className="relative mt-8 md:mt-0 z-10"
       >
         <motion.div
           animate={{ y: [0, -10, 0] }}

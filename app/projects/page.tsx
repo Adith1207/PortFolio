@@ -143,7 +143,7 @@ export default function ProjectsPage() {
             No projects found in this sector.
           </motion.div>
         ) : (
-          <div className="relative w-full flex items-center justify-between gap-4 lg:gap-8 px-2 lg:px-6">
+          <div className="relative w-full flex items-center justify-between gap-3 lg:gap-6 px-1 lg:px-2">
             {/* Prev Button Desktop */}
             <motion.button
               whileHover={{ scale: 1.1, x: -5 }}
@@ -155,7 +155,7 @@ export default function ProjectsPage() {
             </motion.button>
 
             {/* Display the Current Project Card */}
-            <div className="relative w-full flex-grow flex justify-center items-center">
+            <div className="relative flex-grow flex justify-center items-center w-0">
               <AnimatePresence initial={false} custom={direction} mode="popLayout">
                 <motion.div
                   key={currentIndex}
@@ -210,14 +210,43 @@ export default function ProjectsPage() {
                             </span>
                           </motion.div>
 
-                          <motion.h3
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ delay: 0.3, duration: 0.5 }}
-                            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4"
-                          >
-                            {filteredProjects[currentIndex].title}
-                          </motion.h3>
+                          {(() => {
+                            const fullTitle = filteredProjects[currentIndex].title;
+                            let main = fullTitle;
+                            let sub = null;
+                            const separators = [" – ", " - ", ": ", " — "];
+                            for (const sep of separators) {
+                              if (fullTitle.includes(sep)) {
+                                const parts = fullTitle.split(sep);
+                                main = parts[0];
+                                sub = parts.slice(1).join(sep);
+                                break;
+                              }
+                            }
+                            if (!sub && fullTitle.includes(" using ")) {
+                              const parts = fullTitle.split(" using ");
+                              main = parts[0];
+                              sub = "using " + parts.slice(1).join(" using ");
+                            }
+
+                            return (
+                              <motion.div
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ delay: 0.3, duration: 0.5 }}
+                                className="mb-6 flex flex-col gap-2"
+                              >
+                                <h3 className="text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black text-white leading-tight tracking-tight drop-shadow-md">
+                                  {main}
+                                </h3>
+                                {sub && (
+                                  <h4 className="text-xl md:text-2xl text-cyan-400 font-bold leading-snug drop-shadow-md">
+                                    {sub}
+                                  </h4>
+                                )}
+                              </motion.div>
+                            );
+                          })()}
 
                           <motion.p
                             initial={{ y: 20, opacity: 0 }}

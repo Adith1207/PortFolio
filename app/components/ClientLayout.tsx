@@ -166,7 +166,7 @@ export default function ClientLayout({
       </motion.nav>
 
       {/* 🌍 Page Content */}
-      <main className="flex-grow px-4 sm:px-6 py-6 sm:py-10 max-w-6xl mx-auto z-10">
+      <main className="flex-grow flex flex-col w-full px-4 sm:px-6 py-4 sm:py-6 max-w-6xl mx-auto z-10">
         {children}
       </main>
 
