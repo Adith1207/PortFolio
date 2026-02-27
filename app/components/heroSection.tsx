@@ -8,7 +8,7 @@ export default function HeroSection() {
   return (
     <section
       className="relative flex flex-col md:flex-row items-center justify-between 
-                 min-h-screen px-4 sm:px-8 md:px-12 overflow-hidden"
+                 w-full h-full flex-grow px-4 sm:px-8 md:px-12 overflow-hidden py-10"
       style={{ overscrollBehavior: "none" }}
     >
       {/* 🌌 Left Section */}
@@ -118,10 +118,10 @@ export default function HeroSection() {
           transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
           className="
             relative
-            w-[85vw] max-w-[430px]
-            h-[60vh] max-h-[550px]
-            sm:w-[460px] sm:h-[560px]
-            lg:w-[540px] lg:h-[640px]
+            w-[85vw] max-w-[380px]
+            h-[50vh] max-h-[480px]
+            sm:w-[420px] sm:h-[500px]
+            lg:w-[480px] lg:h-[580px]
             rounded-[2rem] overflow-hidden border-[3px] border-white/70
             shadow-[0_0_50px_rgba(255,255,255,0.3)]
             before:content-[''] before:absolute before:inset-0 
