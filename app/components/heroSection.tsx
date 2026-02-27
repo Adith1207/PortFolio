@@ -91,7 +91,7 @@ export default function HeroSection() {
           className="mt-8"
         >
           <a
-            href="/resume.pdf"
+            href="/adith_mainR.pdf"
             download="Adith_Narayan_Resume.pdf"
             className="flex items-center justify-center gap-3 px-8 py-4 rounded-full 
                        bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 
