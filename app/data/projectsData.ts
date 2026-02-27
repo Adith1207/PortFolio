@@ -4,7 +4,7 @@ export const projectsData = [
     title: "Smart Announcement System using STM32 & ESP8266",
     description:
       "The Smart Announcement System is an IoT-based embedded project designed to modernize traditional public announcement setups. Unlike existing systems that rely on manual triggering or physical switches, this project integrates an ESP8266-hosted web dashboard that allows remote announcements and maintains a digital log of all messages broadcasted. The concept was inspired by observing inefficiencies in our college’s conventional announcement system — prompting the creation of a smarter, automated, and connected alternative.",
-    tech: ["Embedded C", "STM32", "I2C", "IoT","Web Devolopment","I2S","UART Tx/Rx"],
+    tech: ["Embedded C", "STM32", "I2C", "IoT", "Web Devolopment", "I2S", "UART Tx/Rx"],
     github: "https://github.com/Adith1207/Smart-Announcement-System",
     image: "/project_images/sas.png",
     category: "Embedded",
@@ -112,7 +112,7 @@ export const projectsData = [
   },
 
   {
-  title: "Terminal Chat Assistant (C) — CLI Smart Assistant",
+    title: "Terminal Chat Assistant (C) — CLI Smart Assistant",
     description:
       "A lightweight Terminal Chat Assistant built in C for Linux that maps plain-English requests to shell commands. Designed as a course project to simplify terminal workflows, it parses natural language (via tgpt), suggests and runs appropriate commands, and provides audio feedback using espeak-ng and ffplay. The assistant helps with file management, system utilities, automation, and quick web lookups — making the terminal approachable for beginners and power users alike.",
     tech: [
@@ -130,7 +130,7 @@ export const projectsData = [
   },
 
   {
-  title: "CIBIL Score Card – User Data Collection App",
+    title: "CIBIL Score Card – User Data Collection App",
     description:
       "A Flutter-based mobile application developed during my internship to collect and validate user data for creditworthiness (CIBIL) scoring. The app features a clean, scrollable interface with structured sections for personal and credit details, ensuring accurate and organized data entry. It was designed to integrate seamlessly with ML-driven credit analysis systems and supports future API and authentication modules for real-time score computation.",
     tech: [
@@ -183,7 +183,24 @@ export const projectsData = [
     image: "/project_images/hamnosys.jpg",
     category: "Web",
   },
-
-
-
+  {
+    title: "VaultGuard: Adaptive Liquidity for the Unpredictable Economy",
+    description:
+      "VaultGuard serves as an intelligent financial command center. Unlike traditional personal finance tools built for predictable salaries, it targets gig workers, freelancers, and variable earners suffering from the \"High Balance Illusion\" and volatility blindness. It actively transforms irregular cash flows using a Dual-Pipeline AI Architecture (Stochastic Income Predictor using Random Forests + Adaptive Expense Forecaster via Recency-Weighted mapping). By calculating a dynamic \"Safe Withdrawable Amount\" via an \"Atomic Ledger\" logic, VaultGuard strictly reserves cash for upcoming immutable liabilities, applying dynamic confidence discounts. Alongside this, its analytics dashboard visualizes monthly health, safe-to-spend gauges, and week-over-week spending velocities to replace retroactive tracking with proactive financial armor.",
+    tech: [
+      "React.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "Python",
+      "Docker",
+      "Machine Learning"
+    ],
+    github: "https://github.com/Adith1207/NO_FREE_BUGS",
+    image: "/project_images/vault_guard.png",
+    category: "AI",
+  },
 ];
