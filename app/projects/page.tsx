@@ -26,7 +26,7 @@ export default function ProjectsPage() {
     setCurrentIndex(0);
   }, [filter]);
 
-  const categories = ["All", "Web", "Embedded", "AI", "Algorithms"];
+  const categories = ["All", "Web", "Embedded", "ML & DL", "Algorithms"];
 
   const handleNext = () => {
     setDirection(1);
@@ -89,7 +89,7 @@ export default function ProjectsPage() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 drop-shadow-[0_0_25px_rgba(255,105,180,0.4)] tracking-tight mb-4 text-center"
         >
-          My Universe 🚀
+          My Project Universe
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}

@@ -7,19 +7,19 @@ import { Download } from "lucide-react";
 export default function HeroSection() {
   return (
     <section
-      className="relative flex flex-col md:flex-row items-center justify-center gap-10 lg:gap-20
+      className="relative flex flex-col lg:flex-row items-center justify-center lg:justify-between max-w-7xl mx-auto
                  w-full h-full flex-grow px-4 sm:px-8 md:px-12 overflow-hidden py-10"
       style={{ overscrollBehavior: "none" }}
     >
       {/* 🌌 Left Section */}
-      <div className="max-w-xl flex flex-col items-center md:items-start space-y-6 z-20">
+      <div className="max-w-[45%] flex flex-col items-center lg:items-start space-y-6 z-40 lg:translate-x-12">
         <motion.h1
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
-          className="relative text-5xl sm:text-6xl md:text-7xl font-black leading-tight 
-                     tracking-tight whitespace-nowrap text-center md:text-left 
-                     drop-shadow-[0_0_12px_rgba(0,0,0,0.7)]"
+          className="relative text-[3.5rem] sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[6rem] font-black leading-[1.1] 
+                     tracking-tight text-center lg:text-left 
+                     drop-shadow-[0_0_15px_rgba(0,0,0,0.8)] lg:whitespace-nowrap z-50"
         >
           <span className="relative">
             <span className="text-cyan-400 drop-shadow-[0_0_10px_rgba(0,255,255,0.7)]">
@@ -44,7 +44,7 @@ export default function HeroSection() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
           className="text-white/80 text-lg sm:text-xl leading-relaxed max-w-md 
-                     text-center md:text-left"
+                     text-center lg:text-left drop-shadow-md bg-black/20 lg:bg-transparent p-4 lg:p-0 rounded-xl backdrop-blur-sm lg:backdrop-blur-none"
         >
           I’m a passionate creator who blends{" "}
           <span className="text-cyan-400">logic</span> and{" "}
@@ -108,7 +108,7 @@ export default function HeroSection() {
         initial={{ x: 80, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
-        className="relative mt-8 md:mt-0 z-10"
+        className="relative mt-12 lg:mt-0 z-10 lg:-ml-48 xl:-ml-64 pointer-events-none"
       >
         <motion.div
           animate={{ y: [0, -10, 0] }}
@@ -118,7 +118,7 @@ export default function HeroSection() {
             w-[85vw] max-w-[380px]
             h-[50vh] max-h-[480px]
             sm:w-[420px] sm:h-[500px]
-            lg:w-[480px] lg:h-[580px]
+            lg:w-[600px] lg:h-[700px]
             rounded-[2rem] overflow-hidden border-[3px] border-white/70
             shadow-[0_0_50px_rgba(255,255,255,0.3)]
             before:content-[''] before:absolute before:inset-0 
