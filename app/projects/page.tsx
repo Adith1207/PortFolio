@@ -236,11 +236,11 @@ export default function ProjectsPage() {
                                 transition={{ delay: 0.3, duration: 0.5 }}
                                 className="mb-6 flex flex-col gap-2"
                               >
-                                <h3 className="text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black text-white leading-tight tracking-tight drop-shadow-md">
+                                <h3 className="text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black text-white leading-tight tracking-tight drop-shadow-md break-words break-keep max-w-full">
                                   {main}
                                 </h3>
                                 {sub && (
-                                  <h4 className="text-xl md:text-2xl text-cyan-400 font-bold leading-snug drop-shadow-md">
+                                  <h4 className="text-xl md:text-2xl text-cyan-400 font-bold leading-snug drop-shadow-md break-words">
                                     {sub}
                                   </h4>
                                 )}
