@@ -25,7 +25,7 @@ export const projectsData = [
     tech: ["Python", "OpenCV", "MediaPipe", "Computer Vision", "AI"],
     github: "https://github.com/Adith1207/AirCursor",
     image: "/project_images/airCursor.png",
-    category: "AI",
+    category: "ML & DL",
   },
 
   {
@@ -43,7 +43,7 @@ export const projectsData = [
     ],
     github: "https://github.com/Adith1207/docuMentor",
     image: "/project_images/Documentor.jpeg",
-    category: "AI",
+    category: "ML & DL",
   },
 
   {
@@ -62,7 +62,7 @@ export const projectsData = [
     ],
     github: "https://github.com/Adith1207/GenOjas",
     image: "/project_images/GenOjas.png",
-    category: "AI",
+    category: "ML & DL",
   },
 
   {
@@ -163,7 +163,7 @@ export const projectsData = [
     ],
     github: "https://github.com/Adith1207/Plant_Disease_App",
     image: "/project_images/plant_disease.jpg",
-    category: "AI",
+    category: "ML & DL",
   },
 
   {
@@ -201,6 +201,6 @@ export const projectsData = [
     ],
     github: "https://github.com/Adith1207/NO_FREE_BUGS",
     image: "/project_images/vault_guard.png",
-    category: "AI",
+    category: "ML & DL",
   },
 ];
